@@ -5,6 +5,16 @@ export const getSiteSettings = () => settings;
 function text(selector, value) { const element = document.querySelector(selector); if (element) element.textContent = value; }
 function photo(selector, src, alt) { const image = document.querySelector(selector); if (image) { image.src = src; image.alt = alt; } }
 export async function loadSite() {
+  if (import.meta.env.MODE === 'pages') {
+    // GitHub Pages is a static showcase: no API requests or pretend login.
+    const base = import.meta.env.BASE_URL;
+    document.querySelectorAll('[data-image]').forEach(item => {
+      if (item.dataset.image.startsWith('/images/')) item.dataset.image = base + item.dataset.image.slice(1);
+    });
+    const adminLink = document.querySelector('.admin-entry');
+    if (adminLink) { adminLink.href = base + 'admin/'; adminLink.textContent = 'Sobre o painel administrativo ↗'; }
+    return;
+  }
   try {
     const response = await fetch('/api/site');
     if (!response.ok) throw new Error('Site indisponível');

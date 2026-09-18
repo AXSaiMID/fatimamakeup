@@ -1,6 +1,10 @@
 # Fátima Correa makeup
 
-Site editorial responsivo com catálogo público e painel administrativo real em `/admin/`.
+Site editorial responsivo com catálogo público e painel administrativo real em `/admin/` na versão com servidor.
+
+## Vitrine no GitHub Pages
+
+A publicação estática usa `npm run build:pages` e o workflow `.github/workflows/pages.yml`. Consulte **[PUBLICACAO.md](PUBLICACAO.md)** para o passo a passo e as limitações. No GitHub Pages, o painel e o banco **não** funcionam; a rota `/admin/` é apenas uma página informativa. A versão completa abaixo exige hospedagem Node.
 
 ## Requisitos e execução
 
