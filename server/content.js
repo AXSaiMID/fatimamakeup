@@ -22,7 +22,7 @@ export const schemas = {
 export const defaults = {
   heroTitle: 'Beleza que tem', heroAccent: 'assinatura.',
   heroDescription: 'Não é sobre ser outra pessoa.\nÉ sobre se reconhecer. E se sentir extraordinária.',
-  heroImage: '/images/hero.jpg', heroImageAlt: 'Retrato editorial ilustrativo de maquiagem natural e iluminada', heroPosition: 79,
+  heroImage: '/images/09F89F0A-21A1-4707-9301-7CB7FAC0EED0.jpg', heroImageAlt: 'Fátima Correa com maquiagem artística e pinceladas coloridas no rosto e nas mãos', heroPosition: 50,
   aboutTitle: 'O meu olhar.', aboutAccent: 'A sua essência.',
   aboutText: 'Por trás da Fátima Correa makeup está Fátima Correa. E, no centro de cada produção, está você: seu estilo, seus traços e a forma como deseja se sentir.',
   aboutText2: 'A proposta é simples: valorizar a sua beleza com um olhar atento aos detalhes, para que você viva seu momento com leveza e confiança.',

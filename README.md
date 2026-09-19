@@ -115,7 +115,7 @@ Validação adicional em Chromium/Playwright, com banco de teste isolado: criaç
 
 ## Conteúdo inicial
 
-As imagens iniciais são ilustrativas geradas por IA, não são trabalhos nem retrato da Fátima. Os anexos anteriores não estavam disponíveis no sistema de arquivos. A profissional agora pode substituí-los diretamente pelo painel, sem editar código. Nenhum produto fictício é publicado automaticamente.
+A capa usa a fotografia original da Fátima enviada pelo usuário (`09F89F0A-21A1-4707-9301-7CB7FAC0EED0.jpg`). As outras imagens iniciais continuam sendo referências ilustrativas geradas por IA, não trabalhos ou retratos da profissional. Na versão com servidor, essas imagens podem ser substituídas pelo painel. Nenhum produto fictício é publicado automaticamente.
 
 ## Estrutura
 

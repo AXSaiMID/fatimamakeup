@@ -27,7 +27,7 @@ export async function loadSite() {
     const accent = document.createElement('em'); accent.textContent = s.heroAccent; heading.append(accent);
     text('.hero-description p', s.heroDescription);
     photo('.hero-photo', s.heroImage, s.heroImageAlt);
-    document.querySelector('.hero-photo').style.objectPosition = `${s.heroPosition}% center`;
+    document.querySelector('.hero-photo').style.setProperty('--hero-horizontal', `${s.heroPosition}%`);
     const aboutHeading = document.querySelector('.about-copy h2');
     aboutHeading.replaceChildren(document.createTextNode(s.aboutTitle), document.createElement('br'));
     const aboutAccent = document.createElement('em'); aboutAccent.textContent = s.aboutAccent; aboutHeading.append(aboutAccent);

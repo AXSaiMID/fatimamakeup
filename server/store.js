@@ -36,6 +36,13 @@ export function createStore(directory = process.env.DATA_DIR || '.data') {
       db.exec('COMMIT');
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
+  // Upgrade only the untouched illustrative cover; preserve admin-selected photos.
+  const current = settings();
+  if (current.heroImage === '/images/hero.jpg' && current.heroImageAlt === 'Retrato editorial ilustrativo de maquiagem natural e iluminada' && current.heroPosition === 79) {
+    const { revision, ...data } = current;
+    Object.assign(data, { heroImage: defaults.heroImage, heroImageAlt: defaults.heroImageAlt, heroPosition: defaults.heroPosition });
+    db.prepare('UPDATE settings SET data=?,revision=revision+1 WHERE id=1').run(JSON.stringify(data));
+  }
   const tokenFile = join(dir, 'setup-token');
   if (!db.prepare('SELECT id FROM users LIMIT 1').get() && !existsSync(tokenFile)) {
     writeFileSync(tokenFile, randomBytes(24).toString('hex'), { mode: 0o600 });

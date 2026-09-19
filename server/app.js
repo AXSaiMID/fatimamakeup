@@ -74,7 +74,7 @@ export function createApp(options = {}) {
   function knownImages(data) {
     const images = ['image', 'heroImage', 'aboutImage'].map(key => data[key]).filter(Boolean);
     for (const url of images) {
-      const builtins = ['/images/hero.jpg', '/images/social.jpg', '/images/bridal.jpg', '/images/beauty.jpg'];
+      const builtins = ['/images/09F89F0A-21A1-4707-9301-7CB7FAC0EED0.jpg', '/images/hero.jpg', '/images/social.jpg', '/images/bridal.jpg', '/images/beauty.jpg'];
       if (!builtins.includes(url) && !db.prepare('SELECT id FROM media WHERE url=?').get(url)) throw Object.assign(new Error('Selecione uma imagem existente na biblioteca.'), { status: 400 });
     }
   }
@@ -116,6 +116,7 @@ export function createApp(options = {}) {
   });
   app.use('/api/admin', auth);
   const builtins = [ ['hero', 'Editorial natural', 1536, 1024], ['social', 'Maquiagem social', 512, 1024], ['bridal', 'Noivas', 512, 1024], ['beauty', 'Glam', 512, 1024] ].map(([id, name, width, height]) => ({ id, name: `${name} · ilustrativa IA`, url: `/images/${id}.jpg`, width, height, builtin: true }));
+  builtins.unshift({ id: 'fatima-correa-portrait', name: 'Fátima Correa · foto original', url: '/images/09F89F0A-21A1-4707-9301-7CB7FAC0EED0.jpg', width: 841, height: 1494, builtin: true });
   app.get('/api/admin/content', (req, res) => res.json({ settings: store.settings(), products: store.list('products'), services: store.list('services'), gallery: store.list('gallery'), media: [...db.prepare('SELECT * FROM media ORDER BY created DESC').all(), ...builtins] }));
   app.put('/api/admin/settings', (req, res) => {
     const data = settingsSchema.parse(req.body); knownImages(data);
